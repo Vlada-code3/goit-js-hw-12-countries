@@ -33,7 +33,9 @@ ul{
   line-height: 1.2;
   text-align: center;
   margin: 40px;
-  width: 538px;
+  width: 500px;
+  border: none;
+  border-radius: 5px;
 }
 
 .listCountry {
@@ -55,17 +57,18 @@ ul{
 
 body {
   font-family: "IBM Plex Sans Roman", Times;
-  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   min-height: 100vh;
   background-color: #B2DFDB;
+  
 }
 
-h2 {
+.titleList {
+  margin-top: 100px;
   font-weight: 100;
-  font-size: 10vw;
+  font-size: 5vw;
   font-variation-settings: 'wght' 100, 'wdth' 85;
   animation: breathe 4000ms infinite forwards;
 }
@@ -78,4 +81,11 @@ h2 {
   100% {
     font-variation-settings: 'wght' 100, 'wdth' 85;
   }
+}
+
+.hidden {
+  display: none;
+}
+.activeInput{
+  margin-top: 200px;
 }

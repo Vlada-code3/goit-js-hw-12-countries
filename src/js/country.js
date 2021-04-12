@@ -2,7 +2,7 @@
 import countrySearch from './services/country-service.js';
 import refs from './refs';
 import articlesOneCountry from '../templates/templatesOneCountry.hbs';
-import countryList from '../templates/templatesOneCountry.hbs';
+import countryList from '../templates/templatesManyCountry.hbs';
 
 
 import "@pnotify/core/dist/PNotify.css";
@@ -12,8 +12,15 @@ import "@pnotify/core/dist/BrightTheme.css";
 const { error } = require('@pnotify/core');
 var debounce = require('lodash.debounce');
 
+const title = document.querySelector('.titleList');
+
+refs.searchForm.addEventListener('click', ()=>{
+  title.classList.add("hidden");
+  refs.searchForm.classList.add("activeInput")
+});
 
 refs.searchForm.addEventListener('input', debounce(countrySearchInputHandler, 500));
+
 
 function countrySearchInputHandler(e) {
   e.preventDefault();
@@ -33,7 +40,7 @@ function countrySearchInputHandler(e) {
       });
       } else if (data.length === 1) {
           buildListMarkup(data, articlesOneCountry);
-      } else if (data.length <= 10) {
+      } else if (data.length >=2 && data.length<10) {
           buildListMarkup(data, countryList);
       }
   })
